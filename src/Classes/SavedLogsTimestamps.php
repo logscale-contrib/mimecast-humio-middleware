@@ -26,7 +26,7 @@ class SavedLogsTimestamps
     }
     public function storeLastLogTimestamp($logType, $timestamp)
     {
-        $filePath = dirname(dirname(dirname(__FILE__))) . '/timestamp_checkpoint.txt';
+        $filePath = dirname(dirname(dirname(__FILE__))) . '/checkpoint/timestamp_checkpoint.txt';
         if (!file_exists($filePath)) {
             $this->initializeLastLogTimestampStorage($filePath);
         }

@@ -71,8 +71,8 @@ class MimecastApiWrapper implements iApiWrapper
         $has_more_logs = true;
         $mappedResponseData = [];
         $model = [];
-        $checkpoint = fopen(dirname(dirname(dirname(__FILE__)))."/checkpoint.txt","w+");
-        $token = file_get_contents(dirname(dirname(dirname(__FILE__)))."/checkpoint.txt");
+        $checkpoint = fopen(dirname(dirname(dirname(__FILE__)))."/checkpoint/checkpoint.txt","w+");
+        $token = file_get_contents(dirname(dirname(dirname(__FILE__)))."/checkpoint/checkpoint.txt");
         $fileFormat = "key_value";
         $lastTokenSent = '';
         $mapperData = [];

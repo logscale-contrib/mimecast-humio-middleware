@@ -51,7 +51,7 @@ class HumioCommand extends Command
 
     private function determineDateFrom ($logType, $timeframe)
     {
-        $filePath = dirname(dirname(dirname(__FILE__))) . '/timestamp_checkpoint.txt';
+        $filePath = dirname(dirname(dirname(__FILE__))) . '/checkpoint/timestamp_checkpoint.txt';
         @$lastRetrievedLogsTimestampsArray = unserialize(file_get_contents($filePath));
         $dateFrom = $lastRetrievedLogsTimestampsArray[$logType[0]];
         $dateTo = date('c', strtotime(date('c')));
@@ -80,7 +80,7 @@ class HumioCommand extends Command
         $dotenv = new Dotenv(dirname(dirname(dirname(__FILE__))));
         $dotenv->load();
 
-        $filePath = dirname(dirname(dirname(__FILE__))) . '/timestamp_checkpoint.txt';
+        $filePath = dirname(dirname(dirname(__FILE__))) . '/checkpoint/timestamp_checkpoint.txt';
         $logType = $input->getArgument('log-type');
         $timeframe = $input->getOption('retrievalPeriod');
 
