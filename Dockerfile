@@ -11,14 +11,18 @@ RUN cd /tmp;\
 
 RUN mkdir /app;mkdir /work
 COPY composer.* /app/
-COPY bin /app/
-COPY src /app/
+COPY .env /app/
+COPY bin /app/bin
+COPY src /app/src
 RUN cd /app;\
-    COMPOSER_ALLOW_SUPERUSER=1 composer install
+    COMPOSER_ALLOW_SUPERUSER=1 composer install ;\
+    chmod +x /app/bin/console
+
 
 FROM php:7.2.34-cli-buster 
 
-COPY --from=composer /app /app
+COPY --from=composer /app/ /app
+WORKDIR /app
 # RUN touch /work/checkpoint.txt
 # RUN touch /work/timestamp_checkpoint.txt
 
