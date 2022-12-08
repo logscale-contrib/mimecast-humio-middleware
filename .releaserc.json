@@ -32,7 +32,8 @@
                 "prepareCmd": "./.github/workflows/scripts/prepareHelm.sh ${nextRelease.version}",
                 "publishCmd": "./.github/workflows/scripts/publishHelm.sh ${nextRelease.version}"
             }
-        ][
+        ],
+        [
             "@semantic-release/github",
             {
                 "assets": [
